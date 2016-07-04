@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Klassenbuch</title>
+    <!--<link href="http://fonts.googleapis.com/css?family=Roboto:400,700,300" rel="stylesheet" type="text/css">-->
+    <link href="//code.jquery.com/ui/1.11.4/themes/ui-darkness/jquery-ui.css" rel="stylesheet" type="text/css">
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <script src="//code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <!--<script src="//code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>-->
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js" integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw=" crossorigin="anonymous"></script>
+    <script src="//cdn.tmijs.org/js/1.1.1/tmi.min.js" integrity="sha384-8Q+qSu52Px9pRIc72XaZ9pFAFWO/bidhybR512f3TwwFKkdwyvF/lVKixrhp4u3h" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</head>
+<body onload="main()">
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-main">Klassenbuch <span id="title"></span></a></li>
+            <li><a href="#tabs-checked">Abgehakt</a></li>
+        </ul>
+        <div id="tabs-main">
+            <table id="table-main"></table>
+        </div>
+        <div id="tabs-checked">
+            <table id="table-checked"></table>
+        </div>
+    </div>
+    <div id="menu">
+        <button id="menu-config">configure</button>
+        <button id="menu-help">help</button>
+    </div>
+    <div id="dialog-config" title="Konfiguration">
+        <p class="validateTips">Klassenbuch öffnen für:</p>
+        <form>
+            <label for="name">Twitch-Name</label>
+            <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all">
+            <input type="submit" class="enter-button">
+        </form>
+    </div>
+    <div id="dialog-help" title="Was ist das hier?">
+        <p>Das 'Klassenbuch' sammelt die Namen im Twitch-Chat eines Streamers und stellt sie als abhakbare Liste, z.B. für Begrüßungen dar.</p>
+        <p>Dabei werden nur Viewer berücksichtigt, die im Chat aktiv sind, nachdem das Klassenbuch geöffnet wurde. Auf diese Weise werden Lurker nicht gestört.</p>
+    </div>
+</body>
+</html>

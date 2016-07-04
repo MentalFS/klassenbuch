@@ -1,0 +1,27 @@
+#tabs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+#menu {
+    position: absolute;
+    top: 1ex;
+    right: 1ex;
+}
+
+#menu button {
+    height: 1.5em;
+    width: 1.5em;
+}
+
+.no-close .ui-dialog-titlebar-close {
+    display: none;
+}
+
+.enter-button {
+    position:absolute;
+    top:-1000px;
+}
