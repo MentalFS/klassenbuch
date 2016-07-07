@@ -4,6 +4,7 @@
     left: 0;
     bottom: 0;
     right: 0;
+    overflow: auto;
 }
 
 #menu {
@@ -24,4 +25,12 @@
 .enter-button {
     position:absolute;
     top:-1000px;
+}
+
+.banned {
+    text-decoration: line-through;
+}
+
+.left, .banned {
+    color: #808080;
 }
