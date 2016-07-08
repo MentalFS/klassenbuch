@@ -7,14 +7,12 @@ function main() {
 
     //noinspection JSPotentiallyInvalidConstructorUsage
     client = new tmi.client({connection: {reconnect: true}});
-    //noinspection JSUnresolvedFunction
-    client.connect();
     client.addListener("message", message);
     client.addListener("ban", ban);
     client.addListener("part", part);
     client.addListener("join", join);
-
-    $("#dialog-config").dialog("open");
+    //noinspection JSUnresolvedFunction
+    client.connect().then(setup);
 }
 
 function message(channel, user, message, self) {
@@ -77,6 +75,11 @@ function setup() {
 
     var name = $("#name");
     var title = $("#title");
+
+    if (!name.val()) {
+        dialogConfig.dialog( "open" );
+        return;
+    }
     console.log("Setting up channel "+name.val());
 
     title.text("");
@@ -116,4 +119,15 @@ function init_ui() {
     menuHelp.button({icons: {primary: "ui-icon-help"}, text: false});
     dialogHelp.dialog({autoOpen: false, modal: true});
     menuHelp.click(function() {dialogHelp.dialog( "open" ); });
+
+    var params = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf("?") + 1).split("&");
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split("=");
+        params.push(hash[0]);
+        params[hash[0]] = hash[1];
+    }
+
+    $("#name").val(params["channel"]);
 }
